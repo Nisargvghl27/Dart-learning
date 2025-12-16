@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'screens/splash_screen.dart'; // Ensure this file exists
 
 void main() {
   runApp(const MyApp());
@@ -10,57 +11,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutterr Demo',
+      title: 'Personalized Budget App',
       theme: ThemeData(
-        colorScheme: .fromSeed(seedColor: const Color.fromARGB(252, 233, 73, 4)),
-      ),
-      home: const MyHomePage(title: 'Flutter'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 100;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter--;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
-        
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text('chakla koidi baaj no bne '),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
+        primarySwatch: Colors.blue,
+        // Optional: define a color scheme for a modern look
+        colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.indigo).copyWith(
+          secondary: Colors.amber,
         ),
+        useMaterial3: true,
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.remove),
-      ),
+      
+      home: const SplashScreen(), 
+      
+      debugShowCheckedModeBanner: false,
     );
   }
 }
